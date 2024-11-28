@@ -22,31 +22,23 @@ def show_deskripsi():
 # Fungsi untuk halaman Dataset
 def show_dataset():
     st.header("Dataset")
-    # Contoh dataset buatan jika tidak ada file dataset
-    df = pd.DataFrame({
-        "Pregnancies": np.random.randint(0, 10, 100),
-        "Glucose": np.random.randint(80, 200, 100),
-        "BloodPressure": np.random.randint(60, 120, 100),
-        "SkinThickness": np.random.randint(10, 50, 100),
-        "Insulin": np.random.randint(15, 200, 100),
-        "BMI": np.random.uniform(18.0, 40.0, 100),
-        "DiabetesPedigreeFunction": np.random.uniform(0.1, 2.5, 100),
-        "Age": np.random.randint(20, 80, 100),
-        "Outcome": np.random.choice([0, 1], 100)
-    })
-    st.dataframe(df)
-    st.write("Dataset ini hanya contoh. Pastikan menggunakan dataset aktual untuk prediksi yang valid.")
+    try:
+        # Memuat dataset dari file diabetes.csv
+        df = pd.read_csv('diabetes.csv')
+        st.dataframe(df)
+        st.write("Dataset ini digunakan untuk melatih model prediksi diabetes.")
+    except FileNotFoundError:
+        st.error("File dataset 'diabetes.csv' tidak ditemukan. Pastikan file tersedia di direktori yang benar.")
 
 # Fungsi untuk halaman Grafik
 def show_grafik():
     st.header("Grafik Data")
-    # Contoh grafik buatan
-    df = pd.DataFrame({
-        "Glucose": np.random.randint(80, 200, 100),
-        "BMI": np.random.uniform(18.0, 40.0, 100),
-        "Age": np.random.randint(20, 80, 100),
-    })
-    st.line_chart(df)
+    try:
+        # Memuat dataset
+        df = pd.read_csv('diabetes.csv')
+        st.line_chart(df[['Glucose', 'BMI', 'Age']])
+    except FileNotFoundError:
+        st.error("File dataset 'diabetes.csv' tidak ditemukan. Tidak dapat menampilkan grafik.")
 
 # Fungsi untuk halaman Prediksi
 def show_prediksi():
