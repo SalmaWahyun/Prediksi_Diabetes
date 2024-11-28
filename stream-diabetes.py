@@ -2,7 +2,6 @@ import pickle
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 # Load model
 diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
@@ -37,31 +36,7 @@ def show_grafik():
     try:
         # Memuat dataset
         df = pd.read_csv('diabetes.csv')
-        
-        # Grafik Distribusi Fitur
-        st.subheader("Distribusi Glucose")
-        plt.figure(figsize=(8, 5))
-        plt.hist(df['Glucose'], bins=20, color='blue', alpha=0.7, edgecolor='black')
-        plt.title('Distribusi Glucose')
-        plt.xlabel('Glucose')
-        plt.ylabel('Frequency')
-        st.pyplot(plt)
-
-        st.subheader("Distribusi BMI")
-        plt.figure(figsize=(8, 5))
-        plt.hist(df['BMI'], bins=20, color='green', alpha=0.7, edgecolor='black')
-        plt.title('Distribusi BMI')
-        plt.xlabel('BMI')
-        plt.ylabel('Frequency')
-        st.pyplot(plt)
-
-        st.subheader("Grafik Umur (Age) vs Glucose")
-        plt.figure(figsize=(8, 5))
-        plt.scatter(df['Age'], df['Glucose'], alpha=0.6, color='purple')
-        plt.title('Grafik Umur (Age) vs Glucose')
-        plt.xlabel('Age')
-        plt.ylabel('Glucose')
-        st.pyplot(plt)
+        st.line_chart(df[['Glucose', 'BMI', 'Age']])
     except FileNotFoundError:
         st.error("File dataset 'diabetes.csv' tidak ditemukan. Tidak dapat menampilkan grafik.")
 
