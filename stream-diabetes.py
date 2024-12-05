@@ -64,7 +64,5 @@ if add_selectbox == "Deskripsi":
     show_deskripsi()
 elif add_selectbox == "Dataset":
     show_dataset()
-elif add_selectbox == "Grafik":
-    show_grafik()
 elif add_selectbox == "Prediksi":
     show_prediksi()
