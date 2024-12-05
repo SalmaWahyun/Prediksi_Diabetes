@@ -11,9 +11,9 @@ st.title('Prediksi Diabetes')
 
 # Fungsi untuk halaman Deskripsi
 def show_deskripsi():
-    st.header("Deskripsi Aplikasi")
+    st.header("Deskripsi")
     st.write("""
-    Aplikasi ini dirancang untuk membantu memprediksi risiko diabetes berdasarkan sejumlah variabel kunci.
+    website ini dirancang untuk membantu memprediksi risiko diabetes berdasarkan sejumlah variabel kunci.
     Dengan memasukkan data seperti jumlah kehamilan, kadar glukosa, tekanan darah, ketebalan kulit, kadar insulin, BMI, 
     fungsi diabetes pedigree, dan usia, aplikasi akan memberikan hasil prediksi apakah pasien memiliki risiko diabetes atau tidak.
     Model prediksi ini menggunakan teknologi *Machine Learning* yang telah dilatih pada dataset historis untuk memberikan hasil yang akurat.
