@@ -30,16 +30,6 @@ def show_dataset():
     except FileNotFoundError:
         st.error("File dataset 'diabetes.csv' tidak ditemukan. Pastikan file tersedia di direktori yang benar.")
 
-# Fungsi untuk halaman Grafik
-def show_grafik():
-    st.header("Grafik Data")
-    try:
-        # Memuat dataset
-        df = pd.read_csv('diabetes.csv')
-        st.line_chart(df[['Glucose', 'BMI', 'Age']])
-    except FileNotFoundError:
-        st.error("File dataset 'diabetes.csv' tidak ditemukan. Tidak dapat menampilkan grafik.")
-
 # Fungsi untuk halaman Prediksi
 def show_prediksi():
     st.header("Prediksi Diabetes")
