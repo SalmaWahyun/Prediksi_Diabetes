@@ -56,7 +56,7 @@ def show_prediksi():
 # Sidebar untuk navigasi
 add_selectbox = st.sidebar.selectbox(
     "Pilih Menu",
-    ("Deskripsi", "Dataset", "Grafik", "Prediksi")
+    ("Deskripsi", "Dataset", "Prediksi")
 )
 
 # Logika navigasi
