@@ -7,7 +7,7 @@ import numpy as np
 diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
 
 # Judul aplikasi
-st.title('Data Mining Prediksi Diabetes')
+st.title('Prediksi Diabetes')
 
 # Fungsi untuk halaman Deskripsi
 def show_deskripsi():
